@@ -4,11 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 // ====== CONFIGURE AWS S3 ======
-const s3 = new AWS.S3({
+AWS.config.update({
   accessKeyId: process.env.ACCESS_KEY_Id,
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
   region: process.env.REGION,
 });
+
+const s3 = new AWS.S3();
 
 // ====== CREATE BLOG ======
 export const createBlogController = async (req, res, next) => {
