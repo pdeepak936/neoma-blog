@@ -2,10 +2,15 @@
   "name": "neoma-blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "build": "npm install && npm run build-server",
+    "build-server": "echo 'Building server...' && npm run compile-server",
+    "compile-server": "echo 'Compiling server...'",
+    "deploy": "serverless deploy"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +27,8 @@
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.2",
+    "serverless-http": "^3.2.0",
     "uuid": "^9.0.1",
     "validator": "^13.11.0"
   }

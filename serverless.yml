@@ -1,0 +1,28 @@
+
+service: neoma-blog
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  deploymentMethod: direct
+  runtime: nodejs18.x
+  memorySize: 2048
+  stage: dev
+  region: eu-north-1
+  deploymentBucket:
+    name: neoma-blog
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http: ANY /{proxy+}
+      - http: ANY /
+    environment:
+      DEV_MODE: development
+      MONGO_URL: mongodb+srv://pdeepak936:pdeepak936@cluster0.yqcly3c.mongodb.net/blog?retryWrites=true&w=majority
+      JWT_SECRET: Deepak
+      ACCESS_KEY_Id: AKIAQ7VCZEQ4GONMYF7M
+      SECRET_ACCESS_KEY: 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
+      REGION: eu-north-1
+      IMAGE: "betx.one.image"

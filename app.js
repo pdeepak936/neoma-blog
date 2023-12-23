@@ -24,6 +24,10 @@ app.use(cors());
 app.use(morgan("dev"));
 
 //routes
+
+app.get('/', (req, res) => {
+  res.send('Neoma.AI blog api with se bucket access');
+});
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/blog", blogsRoutes);
 
@@ -38,3 +42,5 @@ app.listen(PORT, () => {
     `Node Server Running In ${process.env.DEV_MODE} Mode on port no ${PORT}`
   );
 });
+
+export default app;
